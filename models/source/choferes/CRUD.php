@@ -55,6 +55,41 @@
       }
     }
 
+    /*********************************************************************************
+          GET VEHICULOS
+    ********************************************************************************/
+
+    function getVehiculos ( $id = null) {
+      $items = [];
+      try {
+
+        if ( isset($id) ) {
+          //Lo mas probable es que lo quieren condicionar a que solo se muestre los operativos asi que cambien el query
+          $query = $this->db->connect()->prepare('SELECT * FROM vehiculos WHERE id_vehiculo = :id');
+
+          $query->execute(['id'=>$id]);
+
+        } else {
+
+          $query = $this->db->connect()->query('SELECT * FROM vehiculos');
+
+        }
+
+        while($row = $query->fetch()){
+          $item = new VehiculosClass();
+
+          $item->setId($row['id_vehiculo']);
+          $item->setPlaca($row['placa']);
+          $item->setModelo($row['modelo']);
+          $item->setFuncionamiento($row['funcionamiento']);
+          array_push($items, $item);
+        }
+        return $items;
+      } catch (PDOException $e) {
+        return [];
+      }
+    }
+
     function drop ($id) {
 
       try {

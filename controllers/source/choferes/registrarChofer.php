@@ -15,6 +15,9 @@
       }
     }else{
       $this->view->mensaje = 'Rellene los campos';
+      //Función en modelo choferes para obtener vehiculos
+      $vehiculos = $this->model->choferes->getVehiculos();
+      $this->view->vehiculos = $vehiculos;
     }
 
     $this->view->render('choferes/agregar');
