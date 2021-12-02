@@ -10,52 +10,63 @@
     <script src="<?php echo constant('URL')?>public/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-  <!-- Uso esta clase por el fondo azul -->
+
   <?php require 'views/header.php'; ?> <!-- MENU -->
   <div class="container">
 
     <main>
         <div class="text-header">
-            <h2>Gestion de reparaciones</h2> 
+            <h2>Gestión de mantenimiento</h2> 
         </div>
 
-    <div class="tabla" id="form" data-eliminar="eliminarUsuario">
-      <div>
-          <table>
-            <tr> <th>Id</th><th>Id Vehiculo</th><th>Descripcion</th><th>Costo</th><th>taller</th><th>fecha</th><th>Modificar</th> <th>Eliminar</th>
-            <tbody>
-              <?php
-                foreach($this->reparaciones as $row){
-                  $reparacion = new ReparacionesClass();
-                  $reparacion = $row;
-              ?>
-              </tr >
-              <tr id="fila-<?php echo $reparacion->getId(); ?>">
-                <td><?php echo $reparacion->getId(); ?></td>
-                <td><?php echo $reparacion->getId_vehiculo(); ?></td>
-                <td><?php echo $reparacion->getDescripcion(); ?></td>
-                <td><?php echo $reparacion->getCosto(); ?></td>
-                <td><?php echo $reparacion->getTaller(); ?></td>
-                <td><?php echo $reparacion->getFecha(); ?></td>
+    <div class="tabla" id="form" data-eliminar="eliminarReparacion">
+       <div class="form__box">
+          <div>
+          <label for="caja_busqueda">Buscar</label>
+          <input type="text" name="caja_busqueda" id="caja_busqueda" > 
+          </div>
+          
+        </div>
 
-                <td><a class="crud" href="<?php echo constant('URL')?>reparaciones/modificarUsuario/<?php echo $reparacion->getId();?>">Modificar</a></td>
-                <td>
-                  <button class="crud eliminar" data-id="<?php echo $reparacion->getId(); ?>" <?php if ( $reparacion->getId() == '1' ) {?> disabled="disabled" <?php }?>>Eliminar</button>
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-      </div>
+        <div id="datos" >
+          
+        </div>
+
         <div class="bottom">
-            <a href="<?php echo constant('URL')?>usuarios/registrarUsuario">Registrar</a>
-            <a href="<?php echo constant('URL')?>">Volver</a>
+           <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
+            <a href="<?php echo constant('URL')?>reparaciones/registrarReparacion">Registrar</a>
+            <a href="<?php echo constant('URL')?>opcion">Volver</a>
         </div>
       </div>
+      <div class="modal" id="vent"> 
+
+            <div class="modal_titulo">AYUDA REPARACIONES</div>
+              <div class="modal_mensaje">
+                <p>
+                  En este modulo podrá visualizar las reparaciones que están registradas en el sistema a su vez registrar, eliminar y modificar
+                  <br><br>
+                  1. Para eliminar una reparacion seleccione "eliminar" situada a la derecha de la reparacion
+                  <br> <br>
+                  2. Para modificar una reparacion seleccione "modificar" situada a izquierda de la reparacion
+                  <br><br>
+                  3. Para registrar una reparacion seleccione "registrar" que se muestra en el lado inferior derecho de la tabla
+                  <br><br>
+                  4. Para volver al menu principal presione "volver" situado en la parte inferior derecha
+                  <br><br>
+                  5. Para cerrar esta ventana emergente y seguir con el sistema presione e "cerrar"
+                  <br><br>
+                  6. Para hacer una busqueda dentro del modulo debe ingresar el nombre completo del dato que desea buscar
+
+                </p>
+              </div>  
+              <button class="boton" id="cerrar" onclick="cerrar()">cerrar</button>
+          </div>
     </main>
   </div>
+<script src="<?php echo constant('URL')?>public/js/ventana/ventana.js"></script>
+<script src="<?php echo constant('URL')?>public/js/jquery.min.js"></script>
+<script src="<?php echo constant('URL')?>public/js/mainreparacion.js"></script>
   
 
-  <script src="<?php echo constant('URL')?>public/js/AJAX/eliminar.js"></script>
 </body>
 </html>

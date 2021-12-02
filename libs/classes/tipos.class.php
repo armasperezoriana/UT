@@ -2,37 +2,38 @@
 
 
   class TiposClass  {
-      private $id_taller;
-      private $rif;
-      private $nombre;
-      private $direccion;      
+      private $id;
+      private $nombre_tipo;
+      private $descripcion;
+      private $tiempo;      
 
       public function getId() {
-        return $this->id_taller;
+        return $this->id;
       }
-      public function getRif() {
-        return $this->rif;
-      }
+
       public function getNombre() {
-        return $this->nombre;
+        return $this->nombre_tipo;
       }
-      public function getDireccion() {
-        return $this->direccion;
+      public function getDescripcion() {
+        return $this->descripcion;
+      }
+      public function getTiempo() {
+        return $this->tiempo;
       }
   
 
       //SETTERS
       public function setId($id) {
-        $this->id_taller = $id;
+        $this->id = $id;
       }
-      public function setRif($rif) {
-        $this->rif = $rif;
+      public function setNombre($nombre_tipo) {
+        $this->nombre_tipo = $nombre_tipo;
       }
-      public function setNombre($nombre) {
-        $this->nombre = $nombre;
+      public function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
       }
-      public function setDireccion($direccion) {
-        $this->direccion = $direccion;
+      public function setTiempo($tiempo) {
+        $this->tiempo = $tiempo;
       }
  } 
 

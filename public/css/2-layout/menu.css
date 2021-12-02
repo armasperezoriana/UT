@@ -3,7 +3,8 @@
   width: 100%;
   font-family: Arial;
   font-size: 12px;
-  background-color: #254547;
+  color: red;
+  background-color:#2d2c2c;
 }
 #menu ul{
 
@@ -12,19 +13,22 @@
   padding: 0;
 }
 #menu ul li{
+
   display: inline-block;
 }
 #menu ul li a{
-  padding: 15px;
+  padding: 10px;
   display: block;
   color: white;
   text-decoration: none;
 }
 #menu ul li a:hover{
   border-radius:50px;
-  background-color: #0b6daa;
+  background-color: #eaeaea;
   display:inline-block;
-  color:#fff;
+  color:#0094b0;
 }
 
-
+.notificaciones{
+  height: 18px;
+}

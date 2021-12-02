@@ -1,5 +1,5 @@
 <?php
-
+ require 'libs/classes/roles.class.php';
   require 'libs/classes/usuarios.class.php';
   require 'source/usuarios/CRUD.php';
 

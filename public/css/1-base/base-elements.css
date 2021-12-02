@@ -1,10 +1,12 @@
 /* Reseteo de estilos de navegador */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   
 }
+
 
 a {
   text-decoration: none;
@@ -33,15 +35,24 @@ label {
   font-size: 1em;
   box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.75);
 }
+.botoncito{
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background: #0b6daa;
+    transition: all ease .5s;
+
+}
 #mensaje {
   visibility: hidden;
   height: 0;
   width: 100%;
   margin: 10px 0 0;
   justify-self: self-start;
-  background: #f56f3a;
+  background: #53bfcb;
   text-align: center;
-  color: #eee;
+  color: #2d2c2c;
   font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
   animation: mostrar 5s ease-in-out;
@@ -49,10 +60,46 @@ label {
 #error {
   width: 100%;
   position: absolute;
-  background: #0b6daa;
+  background: #53bfcb;
   text-align: center;
-  color: #eee;
+  color: #2d2c2c;
   font-size: 1.3em;
   font-family: Arial, Helvetica, sans-serif;
   animation: mostrar 10s linear 0.2s;
+}
+
+
+
+.modal{
+background: linear-gradient(0deg,#f2f2f2 91%, #0094b0 91%);
+width: 800px;
+height: 400px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+position: absolute;
+display: none;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+border-radius: 15px;
+
+}
+
+.modal p{
+  color: black;
+}
+
+.modal_titulo{
+color: white;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+text-align: center;
+} 
+
+.modal_mensaje{
+padding: 10px 30px;
+}
+.modal button{
+  bottom: 10px;
 }

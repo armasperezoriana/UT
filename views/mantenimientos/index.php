@@ -10,25 +10,61 @@
     <script src="<?php echo constant('URL')?>public/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-  <!-- Uso esta clase por el fondo rojo -->
+
   <?php require 'views/header.php'; ?> <!-- MENU -->
   <div class="container">
 
     <main>
         <div class="text-header">
-            <h2>Seleccione una opcion</h2> 
+            <h2>Gestión de mantenimientos</h2> 
         </div>
-        <div class="tabla">
-          <table>
-            <th><a class="crud" href="<?php echo constant('URL')?>tipos"><img src="<?php echo constant('URL')?>public/img/tipos.png"><br>Tipos</a></th>
-            <th><a class="crud" href="<?php echo constant('URL')?>realizarMantenimientos"><img src="<?php echo constant('URL')?>public/img/realizar.png"><br>Realizar</a></th>
-          </table>
-        </div>
+
+    <div class="tabla" id="form" data-eliminar="eliminarMantenimiento">
+        <div class="form__box">
+          <div>
+          <label for="caja_busqueda">Buscar</label>
+          <input type="text" name="caja_busqueda" id="caja_busqueda" > 
+          </div>
           
+        </div>
+
+        <div id="datos" >
+          
+        </div>
+        <div class="bottom">
+            <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
+            <a href="<?php echo constant('URL')?>mantenimientos/registrarMantenimiento">Registrar</a>
+            <a href="<?php echo constant('URL')?>opcion">Volver</a>
+        </div>
+      </div>
+      <div class="modal" id="vent"> 
+
+            <div class="modal_titulo">AYUDA MANTENIMIENTOS</div>
+              <div class="modal_mensaje">
+                <p>
+                  En este modulo podrá visualizar los mantenimientos que están registrados en el sistema a su vez registrar, eliminar y modificar
+                  <br><br>
+                  1. Para eliminar un mantenimiento seleccione "eliminar" situada a la derecha del mantenimiento
+                  <br> <br>
+                  2. Para modificar un mantenimiento seleccione "modificar" situada a izquierda del mantenimiento
+                  <br><br>
+                  3. Para registrar un mantenimiento seleccione "registrar" que se muestra en el lado inferior derecho de la tabla
+                  <br><br>
+                  4. Para volver al menu principal presione "volver" situado en la parte inferior derecha
+                  <br><br>
+                  5. Para cerrar esta ventana emergente y seguir con el sistema presione e "cerrar"
+                  <br><br>
+                  6. Para hacer una busqueda dentro del modulo debe ingresar el nombre completo del dato que desea buscar
+
+                </p>
+              </div>  
+              <button class="boton" id="cerrar" onclick="cerrar()">cerrar</button>
+          </div>
     </main>
   </div>
   
-
-  <script src="<?php echo constant('URL')?>public/js/AJAX/eliminar.js"></script>
+ <script src="<?php echo constant('URL')?>public/js/ventana/ventana.js"></script>
+  <script src="<?php echo constant('URL')?>public/js/jquery.min.js"></script>
+  <script src="<?php echo constant('URL')?>public/js/mainmanteni.js"></script>
 </body>
 </html>

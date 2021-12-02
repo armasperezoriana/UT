@@ -5,7 +5,7 @@
     <link href="<?php echo constant('URL')?>public/img/uptaeb1.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>UT | Usuarios</title>
+    <title>UT | Choferes</title>
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/main.css">
 </head>
 <body>
@@ -15,65 +15,61 @@
 
     <main>
          <div class="text-header">
-            <h2>Actualizar Usuario</h2> 
+            <h2>Actualizar chofer</h2> 
         </div>
 
       <div class="modal-container">
         <?php include 'views/errores/mensaje.php'?>
         
       </div>
-        <form action="<?php echo constant('URL')?>usuarios/modificarUsuario" method="POST" class="form">
+        <form action="<?php echo constant('URL')?>choferes/modificarChofer" method="POST" class="form">
         <div class="form__box ">
+         
          <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="nombre" id="nombre" value="<?php echo $this->usuarios->getNombre();?>">
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="nombre" id="nombre" placeholder="Ingrese el nombre" value="<?php echo $this->choferes->getNombre();?>">
             <p class="ayuda esconder">*3 a 12 letras.</p>
          </div>
          <div>
             <label for="apellido">Apellido:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="apellido" id="apellido" value="<?php echo $this->usuarios->getApellido();?>">
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="apellido" id="apellido" placeholder="Ingrese el apellido" value="<?php echo $this->choferes->getApellido();?>">
             <p class="ayuda esconder">*3 a 12 letras.</p>
          </div>
-         <div>
-            <label for="usuario">Usuario:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="usuario" id="usuario" value="<?php echo $this->usuarios->getUsuario();?>">
-            <p class="ayuda esconder">*3 a 12 letras.</p>
-         </div>
-         <div>
-            <label for="rol">Rol:</label>
-            <select name="rol" id="rol" class="select" required>
-                <option value="">...</option>
-                <option value="admin">Admin</option>
-                <option value="usuario">Usuario</option>
-
-            </select>
-         </div>
-            <div class="margin-lados">
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" name="contrasena" id="contrasena" value="<?php echo $this->usuarios->getContrasena();?>" required>
-                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
-            </div>
-            <div class="margin-lados">
-                <label for="conPass">Confirmar contraseña:</label>
-                <input type="password" name="pass-confirmar" id="conPass" required>
-                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
-            </div>
           <div>
-            <label for="cedula">Pregunta de seguridad(Cedula:)</label>
-            <input type="text" data-patron="^[0-9]{6,9}$" name="cedula" id="cedula" placeholder="Ingrese su cedula" value="<?php echo $this->usuarios->getCedula();?>" required readonly>
+            <label for="cedula">Cedula:</label>
+            <input type="text" name="cedula" id="cedula" data-patron="^[0-9]{6,9}$" placeholder="xx.xxx.xxx" required readonly value="<?php echo $this->choferes->getCedula();?>">
+                 <p class="ayuda esconder">*6 a 9 numeros</p>
+          </div>
+          <div>
+            <label for="telefono">Telefono:</label>
+            <input type="text" name="telefono" id="telefono" data-patron="^[0-9]{6,9}$" placeholder="04xx-xxxxxxx" required value="<?php echo $this->choferes->getTelefono();?>">
             <p class="ayuda esconder">*6 a 9 numeros</p>
-          </div>  
+          </div>
+          <div>
+                <label for="vehiculo">Vehiculo</label>
+                <select class="select"  id="select" name="placa">
+                  <option value="0">Seleccione</option>
+                  <?php 
+                    foreach($this->vehiculos as $row){
+                      $vehiculo = new VehiculosClass();
+                      $vehiculo = $row;
+                 ?>
+                <option value="<?php echo $vehiculo->getPlaca()?>"><?php echo $vehiculo->getPlaca().' - '.$vehiculo->getModelo(); ?></option>
+                  <?php } ?>
+
+                </select>
+                
+              </div>
         </div>
         
         <div class="bottom">
-          <button type="submit" id="submit" name="modificarUsuario" value="modificarUsuario">Modificar Usuario</button>
-          <a href="<?php echo constant('URL')?>usuarios/">Cancelar</a>
+          <button type="submit" id="submit" name="modificarChofer" value="modificarChofer">Modificar Chofer</button>
+          <a href="<?php echo constant('URL')?>choferes">Cancelar</a>
         </div>
         
       </form>
     </main>
   </div>
    <script src="<?php echo constant('URL')?>public/js/usuarios/actualizar.js"></script>
-   <script src="<?php echo constant('URL')?>public/js/modal/modal.js"></script>
 </body>
 </html>

@@ -9,11 +9,11 @@
       private $charset;
     
       function __construct () {
-        $this->host = constant('HOST');
-        $this->db = constant('DBNAME');
-        $this->user = constant('USER');
-        $this->pass = constant('PASS');
-        $this->charset = constant('CHARSET');
+        $this->host = 'localhost';
+        $this->db = 'ut';
+        $this->user = 'admin';
+        $this->pass = 'admin';
+        $this->charset = 'utf8';
       }
 
       function connect () {
@@ -32,6 +32,7 @@
            print_r('Error de conexion: '. $e->getMessage()); 
           }
       }
+   
   }
 
 

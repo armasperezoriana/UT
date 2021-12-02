@@ -1,51 +1,51 @@
 <?php 
 
-
   class ReparacionesClass  {
       private $id_reparacion;
-      private $id_vehiculo;
-      private $descripcion;
+      private $nombre;
+      private $placa;
       private $costo;
-      private $taller;
       private $fecha;
+      private $descripcion;
       
-
       public function getId() {
         return $this->id_reparacion;
       }
-      public function getId_vehiculo() {
-        return $this->id_vehiculo;
+      public function getNombre() {
+        return $this->nombre;
       }
-      public function getDescripcion() {
-        return $this->descripcion;
+      public function getPlaca() {
+        return $this->placa;
       }
       public function getCosto() {
         return $this->costo;
       }
-      public function getTaller() {
-        return $this->taller;
-      }
       public function getFecha() {
         return $this->fecha;
       }
+      public function getDescripcion() {
+        return $this->descripcion;
+      }
+      
+
       //SETTERS
       public function setId($id) {
         $this->id_reparacion = $id;
       }
-      public function  setId_vehiculo($id_vehiculo) {
-        $this->id_vehiculo = $id_vehiculo;
+      public function setNombre($nombre) {
+        $this->nombre = $nombre;
       }
-      public function  setDescripcion($descripcion) {
-        $this->descripcion = $descripcion;
+      public function setPlaca($placa) {
+        $this->placa = $placa;
       }
-      public function  setCosto($costo) {
+      public function setCosto($costo) {
         $this->costo = $costo;
-      }
-      public function  setTaller($taller) {
-        $this->taller = $taller;
       }
       public function setFecha($fecha) {
         $this->fecha = $fecha;
+      }
+      public function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
       }
   }
 

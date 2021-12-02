@@ -1,6 +1,10 @@
 <?php
 
-  $RUTA = 'menus/' . $this->rol . '.php';
-  require ($RUTA);
+include 'controllers/menu.php';
+
+$rol = $this->rol;
+$menu = new Menu($rol);
+
+
 
  ?>

@@ -1,6 +1,7 @@
+
 <?php
 
-  define('URL', 'http://localhost/UT/');
+  define('URL', 'http://localhost/ut/');
 
   define('HOST', 'localhost');
   define('DB', 'mysql');

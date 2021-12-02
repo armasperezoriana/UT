@@ -3,7 +3,7 @@
 
   class RutasClass  {
       private $id_ruta;
-      private $vechiculo;
+      private $placa;
       private $nombre;
       private $direccion;
       private $hora_salida;
@@ -12,8 +12,8 @@
       public function getId() {
         return $this->id_ruta;
       }
-      public function getVehiculo() {
-        return $this->vechiculo;
+    public function getPlaca() {
+        return $this->placa;
       }
       public function getNombre() {
         return $this->nombre;
@@ -26,11 +26,11 @@
       }
 
       //SETTERS
-      public function setId($id) {
-        $this->id_ruta = $id;
+      public function setId($id_ruta) {
+        $this->id_ruta = $id_ruta;
       }
-      public function setVehiculo($vechiculo) {
-        $this->vechiculo = $vechiculo;
+     public function setPlaca($placa) {
+        $this->placa = $placa;
       }
       public function setNombre($nombre) {
         $this->nombre = $nombre;

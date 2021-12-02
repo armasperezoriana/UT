@@ -1,6 +1,7 @@
 <?php
-  //Desde aca manejaremos la aplicacion.
+$notificacion = '';
 
+  //Desde aca manejaremos la aplicacion.
   require_once 'controllers/errores.php';
 
   class App {

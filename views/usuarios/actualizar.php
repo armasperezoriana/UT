@@ -39,15 +39,21 @@
             <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="usuario" id="usuario" value="<?php echo $this->usuarios->getUsuario();?>">
             <p class="ayuda esconder">*3 a 12 letras.</p>
          </div>
-         <div>
-            <label for="rol">Rol:</label>
-            <select name="rol" id="rol" class="select" required>
-                <option value="">...</option>
-                <option value="admin">Admin</option>
-                <option value="usuario">Usuario</option>
+          <div>
+                <label for="rol">Roles</label>
+                <select class="select"  id="select" name="rol" required>
+                  <option value="0">Seleccione</option>
+                  <?php 
+                    foreach($this->roles as $row){
+                      $roles = new RolesClass();
+                      $roles = $row;
+                 ?>
+                <option value="<?php echo $roles->getNombre_rol()?>"><?php echo $roles->getNombre_rol(); ?></option>
+                  <?php } ?>
 
-            </select>
-         </div>
+                </select>
+                
+              </div>
             <div class="margin-lados">
                 <label for="contrasena">Contraseña:</label>
                 <input type="password" name="contrasena" id="contrasena" value="<?php echo $this->usuarios->getContrasena();?>" required>
@@ -59,7 +65,7 @@
                 <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
             </div>
           <div>
-            <label for="cedula">Pregunta de seguridad(Cedula:)</label>
+            <label for="cedula">Cedula:</label>
             <input type="text" data-patron="^[0-9]{6,9}$" name="cedula" id="cedula" placeholder="Ingrese su cedula" value="<?php echo $this->usuarios->getCedula();?>" required readonly>
             <p class="ayuda esconder">*6 a 9 numeros</p>
           </div>  
@@ -67,13 +73,12 @@
         
         <div class="bottom">
           <button type="submit" id="submit" name="modificarUsuario" value="modificarUsuario">Modificar Usuario</button>
-          <a href="<?php echo constant('URL')?>usuarios/">Cancelar</a>
+          <a href="<?php echo constant('URL')?>usuarios" >Volver</a>
         </div>
         
       </form>
     </main>
   </div>
    <script src="<?php echo constant('URL')?>public/js/usuarios/actualizar.js"></script>
-   <script src="<?php echo constant('URL')?>public/js/modal/modal.js"></script>
 </body>
 </html>

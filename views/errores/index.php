@@ -10,13 +10,15 @@
 </head>
 <body>
   <!-- Uso esta clase por el fondo rojo -->
-  <?php require 'views/header.php'; ?> <!-- MENU -->
+
   <div class="container">
     <main>
         <div class="text-header">
             <h2> <?php echo $this->mensaje ?>  <a class="mensaje-button" href="<?php echo constant('URL')?>" class="boton">Volver</a></h2>
             
         </div>
+         <img src="<?php echo constant('URL')?>public/img/404.png" width="800px">
+         <laberl>Lo sentimos, pero la pagina que buscas no existe.</label>
     </main>
   </div>
 </body>

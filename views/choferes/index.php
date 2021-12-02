@@ -10,51 +10,60 @@
     <script src="<?php echo constant('URL')?>public/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-
+ 
   <?php require 'views/header.php'; ?> <!-- MENU -->
   <div class="container">
 
     <main>
         <div class="text-header">
-            <h2>Gestion de choferes</h2> 
+            <h2>Gestión de choferes</h2> 
         </div>
 
-    <div class="tabla" id="form" data-eliminar="eliminarUsuario">
-      <div>
-          <table>
-            <tr> <th>Nombre</th><th>Apellido</th><th>C.I.</th><th>Telefono</th><th>ID</th><th>Vehiculo</th> <th>Modificar</th> <th>Eliminar</th>
-            <tbody id="tbody-choferes">
-              <?php
-                foreach($this->choferes as $row){
-                  $choferes = new ChoferesClass();
-                  $choferes = $row;
-              ?>
-              </tr >
-              <tr id="fila-<?php echo $choferes->getId(); ?>">
-                <td><?php echo $choferes->getNombre(); ?></td>
-                <td><?php echo $choferes->getApellido(); ?></td>
-                <td><?php echo $choferes->getCedula(); ?></td>
-                <td><?php echo $choferes->getTelefono(); ?></td>
-                <td><?php echo $choferes->getId(); ?></td>
-                <td><?php echo $choferes->getVehiculo(); ?></td>
-                <td><a class="crud" href="<?php echo constant('URL')?>choferes/modificarChofer/<?php echo $choferes->getId();?>">Modificar</a></td>
-                <td>
-                  <button class="crud eliminar">Eliminar</button>
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-      </div>
+    <div class="tabla" id="form" data-eliminar="eliminarChofer">
+       <div class="form__box">
+          <div>
+          <label for="caja_busqueda">Buscar</label>
+          <input type="text" name="caja_busqueda" id="caja_busqueda" > 
+          </div>
+          
+        </div>
+
+        <div id="datos" >
+          
+        </div>
         <div class="bottom">
+            <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
             <a href="<?php echo constant('URL')?>choferes/registrarChofer">Registrar</a>
             <a href="<?php echo constant('URL')?>">Volver</a>
         </div>
       </div>
+      <div class="modal" id="vent"> 
+
+            <div class="modal_titulo">AYUDA CHOFERES</div>
+              <div class="modal_mensaje">
+                <p>
+                  En este modulo podrá visualizar los choferes que están registrados en el sistema a su vez registrar, eliminar y modificar
+                  <br><br>
+                  1. Para eliminar un chofer seleccione "eliminar" situada a la derecha del chofer
+                  <br> <br>
+                  2. Para modificar un chofer seleccione "modificar" situada a izquierda del chofer
+                  <br><br>
+                  3. Para registrar un chofer seleccione "registrar" que se muestra en el lado inferior derecho de la tabla
+                  <br><br>
+                  4. Para volver al menu principal presione "volver" situado en la parte inferior derecha
+                  <br><br>
+                  5. Para cerrar esta ventana emergente y seguir con el sistema presione e "cerrar"
+                  <br><br>
+                  6. Para hacer una busqueda dentro del modulo debe ingresar el nombre completo del dato que desea buscar
+
+                </p>
+              </div>  
+              <button class="boton" id="cerrar" onclick="cerrar()">cerrar</button>
+          </div> 
     </main>
   </div>
-  
-
-  <script src="<?php echo constant('URL')?>public/js/AJAX/eliminar.js"></script>
+  <script src="<?php echo constant('URL')?>public/js/ventana/ventana.js"></script>
+   <script src="<?php echo constant('URL')?>public/js/jquery.min.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/mainchofer.js"></script>
 </body>
 </html>

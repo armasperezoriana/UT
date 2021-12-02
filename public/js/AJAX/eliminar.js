@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let respuesta = confirm('¿Esta seguro de eliminar esta entidad?')
       let id = boton.dataset.id;
       if (respuesta) {
+
         //solicitud AJAX
         let url = 'http://localhost/ut/' + data['controlador'] + '/' + data['metodo'] + '/' + id
 

@@ -5,8 +5,9 @@
       $rif    = ($_POST['rif'] !== "") ? $_POST['rif'] : NULL;
       $nombre = ($_POST['nombre'] !== "") ? $_POST['nombre'] : NULL;
       $direccion = ($_POST['direccion'] !== "") ? $_POST['direccion'] : NULL;
+      $informacion_contacto = ($_POST['informacion_contacto'] !== "") ? $_POST['informacion_contacto'] : NULL;
 
-      if ($this->model->talleres->update(['rif'=>$rif, 'nombre'=>$nombre, 'direccion'=>$direccion])){
+      if ($this->model->talleres->update(['rif'=>$rif, 'nombre'=>$nombre, 'direccion'=>$direccion, 'informacion_contacto'=>$informacion_contacto])){
         $this->view->mensaje = '¡Taller Modificado exitosamente!';
 
       }else{

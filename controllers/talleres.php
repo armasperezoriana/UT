@@ -1,5 +1,5 @@
 <?php 
-
+require 'libs/classes/roles.class.php'; 
 class Talleres extends Controller{
 
   function __construct () {
@@ -7,23 +7,27 @@ class Talleres extends Controller{
   }
 
   function render () {
-    if ($_SESSION['usuario'] == 'admin') {
-      $this->view->mensaje = 'Esta pagina controla las talleres';
-    
+     $modulo = "talleres";
+    if ($this->model->talleres->verificar($modulo)) {
+    $this->view->mensaje = 'Esta pagina controla las talleres';
     $talleres = $this->model->talleres->get();
     $this->view->talleres = $talleres;
-    
     $this->view->render('talleres/index');
-    }else{
-       $this->view->render('errores/bloquear');
+     }else{
+      $this->view->render('errores/bloquear');
     }
   }
 
   public function load ($metodo, $param = null) {
+    $modulo = "talleres";
+    if ($this->model->talleres->verificar($modulo)) {
 
     $ruta = 'source/talleres/'.$metodo.'.php';
 
     require_once $ruta;
+     }else{
+      $this->view->render('errores/bloquear');
+    }
   }
 
 }

@@ -25,31 +25,31 @@
       <th colspan="4" align="center">Desarroladores</th>
     </tr>
     <tr>
-      <td><img src="<?php echo constant('URL')?>public/img/alejandro.png" width= "70px" class="desarrolladores"></td>
+      <td><img src="<?php echo constant('URL')?>public/img/desarrolladores/alejandro.png" width= "70px" class="desarrolladores"></td>
       <td>José Delgado</td>
       <td>0416-3154826</td>
       <td>alejandro.delgado.garces@gmail.com</td>
     </tr>
     <tr>
-      <td><img src="<?php echo constant('URL')?>public/img/oriana.png" width= "70px"class="desarrolladores"></td>
+      <td><img src="<?php echo constant('URL')?>public/img/desarrolladores/oriana.png" width= "70px"class="desarrolladores"></td>
       <td>Oriana Armas</td>
       <td>0414-5448669</td>
       <td>oriana@gmail.com</td>
     </tr>
     <tr>
-      <td><img src="<?php echo constant('URL')?>public/img/ricardo.png" width= "70px"class="desarrolladores"></td>
+      <td><img src="<?php echo constant('URL')?>public/img/desarrolladores/ricardo.png" width= "70px"class="desarrolladores"></td>
       <td>Ricardo Ortiz</td>
       <td>0412-5173238</td>
       <td>ricardo@gmail.com</td>
     </tr>
     <tr>
-      <td><img src="<?php echo constant('URL')?>public/img/antoni.png" width= "70px"class="desarrolladores"></td>
+      <td><img src="<?php echo constant('URL')?>public/img/desarrolladores/antoni.png" width= "70px"class="desarrolladores"></td>
       <td>Antoni Ramos</td>
       <td>0414-5373009</td>
       <td>antoni@gmail.com</td>
     </tr>
     <tr>
-      <td><img src="<?php echo constant('URL')?>public/img/rafael.png" width= "70px"class="desarrolladores"></td>
+      <td><img src="<?php echo constant('URL')?>public/img/desarrolladores/rafael.png" width= "70px"class="desarrolladores"></td>
       <td>Rafael Escobar</td>
       <td>0416-2596465</td>
       <td>rafa@gmail.com</td>

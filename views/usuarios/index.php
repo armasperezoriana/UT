@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,53 +11,60 @@
     <script src="<?php echo constant('URL')?>public/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-  <!-- Uso esta clase por el fondo rojo -->
   <?php require 'views/header.php'; ?> <!-- MENU -->
   <div class="container">
-
     <main>
-        <div class="text-header">
-            <h2>Gestion de usuarios</h2> 
+      <div class="text-header">
+        <h2>Gestión de usuarios</h2> 
+      </div>
+      <div class="tabla" id="form">
+        
+        <div class="form__box">
+          <div>
+          <label for="caja_busqueda">Buscar</label>
+          <input type="text" name="caja_busqueda" id="caja_busqueda" > 
+          </div>
+          
         </div>
 
-    <div class="tabla" id="form" data-eliminar="eliminarUsuario">
-      <div>
-          <table>
-            <tr> <th>Nombre</th><th>Apellido</th><th>Username</th><th>C.I.</th><th>Contraseña</th><th>Rol</th><th>ID</th>    <th>Modificar</th> <th>Eliminar</th>
-            <tbody id="tbody-usuarios">
-              <?php
-                foreach($this->usuarios as $row){
-                  $usuario = new UsuariosClass();
-                  $usuario = $row;
-              ?>
-              </tr >
-              <tr id="fila-<?php echo $usuario->getId(); ?>">
-                <td><?php echo $usuario->getNombre(); ?></td>
-                <td><?php echo $usuario->getApellido(); ?></td>
-                <td><?php echo $usuario->getUsuario(); ?></td>
-                <td><?php echo $usuario->getCedula(); ?></td>
-                <td><?php echo $usuario->getContrasena(); ?></td>
-                <td><?php echo $usuario->getRol(); ?></td>
-                <td><?php echo $usuario->getId(); ?></td>
-                
-                <td><a class="crud" href="<?php echo constant('URL')?>usuarios/modificarUsuario/<?php echo $usuario->getId();?>">Modificar</a></td>
-                <td>
-                  <button class="crud eliminar" data-id="<?php echo $usuario->getId(); ?>" <?php if ( $usuario->getId() == '1' ) {?> disabled="disabled" <?php }?>>Eliminar</button>
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-      </div>
-        <div class="bottom">
-            <a href="<?php echo constant('URL')?>usuarios/registrarUsuario">Registrar</a>
-            <a href="<?php echo constant('URL')?>">Volver</a>
+        <div id="datos" >
+          
         </div>
+        
+      <div class="bottom">
+        <button class="botoncito" id="abrir" onclick="abrir()">Ayuda</button>
+        <a href="<?php echo constant('URL')?>usuarios/registrarUsuario">Registrar</a>
+        <a href="<?php echo constant('URL')?>">Volver</a>
       </div>
+      <div class="modal" id="vent"> 
+      <div class="modal_titulo">AYUDA USUARIOS</div>
+              <div class="modal_mensaje">
+                <p>
+                  En este modulo podrá visualizar los usuarios que están registrados en el sistema a su vez registrar, eliminar y modificar
+                  <br><br>
+                  1. Para eliminar un usuario seleccione "eliminar" situada a la derecha del usuario
+                  <br> <br>
+                  2. Para modificar un usuario seleccione "modificar" situada a izquierda del usuario
+                  <br><br>
+                  3. Para registrar un usuario seleccione "registrar" que se muestra en el lado inferior derecho de la tabla
+                  <br><br>
+                  4. Para volver al menu principal presione "volver" situado en la parte inferior derecha
+                  <br><br>
+                  5. Para cerrar esta ventana emergente y seguir con el sistema presione e "cerrar"
+                  <br><br>
+                  6. Para hacer una busqueda dentro del modulo debe ingresar el nombre completo del dato que desea Buscar
+
+                </p>
+              </div>  
+              <div class="bottom">
+        <button class="boton" id="cerrar" onclick="cerrar()">cerrar</button>
+      </div>
+              
+          </div>
     </main>
   </div>
-  
-
-  <script src="<?php echo constant('URL')?>public/js/AJAX/eliminar.js"></script>
-</body>
+   <script src="<?php echo constant('URL')?>public/js/jquery.min.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/main.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/ventana/ventana.js"></script>
+  </body>
 </html>

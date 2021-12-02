@@ -1,10 +1,15 @@
 <?php
-	if ( $this->model->usuarios->drop($param[0]) ) {
-		$mensaje = 'Usuario Eliminado';
+	if ($param[0] == 0) {
+		 $this->view->mensaje = '¡No se puede eliminar al usuario root!';
+	}else{
+			if ( $this->model->usuarios->drop($param[0]) ) {
+		 header('location:'. constant('URL').'usuarios');
 	} else {
-		$mensaje = 'Ha ocurrido un Error';
+		 $this->view->mensaje = '¡Ha ocurrido un error!';
 
 	}
+	}
 
-	echo $mensaje;
+
+$this->view->render('usuarios/mensaje');
 ?>

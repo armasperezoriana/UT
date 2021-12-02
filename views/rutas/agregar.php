@@ -5,7 +5,7 @@
     <link href="<?php echo constant('URL')?>public/img/uptaeb1.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>UT | Usuarios</title>
+    <title>UT | Rutas</title>
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/main.css">
 </head>
 <body>
@@ -15,67 +15,58 @@
     <main>
       <div class="text-header">
             <h2> <?php echo $this->mensaje ?> </h2> 
-            <h2>Agregar Usuario</h2> 
+            <h2>Agregar Ruta</h2> 
         
         </div>
       <div class="modal-container">
         <?php require_once 'views/errores/mensaje.php'?>
 
       </div>
-        <form action="<?php echo constant('URL')?>usuarios/registrarUsuario" method="POST" class="form">
+        <form action="<?php echo constant('URL')?>rutas/registrarRuta" method="POST" class="form" id="formulario">
       
         <div class="form__box">
-         <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="nombre" id="nombre">
-            <p class="ayuda esconder">*3 a 12 letras.</p>
-         </div>
-         <div>
-            <label for="apellido">Apellido:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="apellido" id="apellido">
-            <p class="ayuda esconder">*3 a 12 letras.</p>
-         </div>
-         <div>
-            <label for="usuario">Username:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="usuario" id="username">
-            <p class="ayuda esconder">*3 a 12 letras.</p>
-         </div>
-         <div>
-            <label for="rol">Rol:</label>
-            <select name="rol" id="rol" class="select" required>
-                <option value="">...</option>
-                <option value="admin">Admin</option>
-                <option value="usuario">Usuario</option>>
-            </select>
-         </div>
-            <div>
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" name="contrasena" data-patron="^[a-zA-Z0-9]*$" id="pass" required>
-                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
-            </div>
-            <div>
-                <label for="pass">Confirmar contraseña:</label>
-                <input type="password" name="pass-confirmar" data-patron="^([a-zA-Z0-9]){3,16}$"id="conPass" required>
-                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
-            </div>
+         
           <div>
-            <label for="cedula">Pregunta de seguridad(Cedula:)</label>
-            <input type="text" name="cedula" id="cedula" data-patron="^[0-9]{6,9}$" placeholder="Ingrese su cedula" required>
-            <p class="ayuda esconder">*6 a 9 numeros</p>
+            <label for="nombre_ruta">Nombre de la ruta:</label>
+            <input type="text" name="nombre_ruta" id="nombre_ruta" data-patron="^[a-zA-Z]{5,30}$" pattern="[a-zA-Z]{5,30}" placeholder="Ingrese el nombre" title="Solo se aceptan caracteres en este campo, debe empezar en mayúscula SIN ESPACIOS" maxlength="30">
+          
+         </div>
+          <div>
+            <label for="direccion_ruta">Dirección:</label>
+            <input type="text" name="direccion_ruta" id="direccion_ruta" placeholder="Ingrese la dirección" data-patron="[a-zA-Z]{10,30}$" title="Solo se aceptan caracteres en este campo" maxlength="30">
+          
+          </div>
+          <div>
+            <label for="hora_salida" >Hora de salida:</label>
+            <input type="time" name="hora_salida" id="hora_salida" required>
 
           </div>
-        </div>
+          <div>
+                <label for="vehiculo">Unidad encargada:</label>
+                <select class="select"   required  id="select" name="placa">
+                  <option value="0">Seleccione</option>
+                  <?php 
+                    foreach($this->vehiculos as $row){
+                      $vehiculo = new VehiculosClass();
+                      $vehiculo = $row;
+                 ?>
+                <option value="<?php echo $vehiculo->getPlaca()?>"><?php echo $vehiculo->getPlaca().' - '.$vehiculo->getModelo(); ?></option>
+                  <?php } ?>
 
+                </select>
+                
+              </div>
+           </div>
         <div class="bottom">
-          <button type="submit" name="agregar"  value="agregar" id="submit">Agregar</button>
-          <a href="<?php echo constant('URL')?>usuarios" >Volver</a>
+           <button type="submit" name="agregar"  value="agregar" onclick= "validarFormulario()" id="submit">Agregar</button>
+          <a href="<?php echo constant('URL')?>rutas" >Volver</a>
 
         </div>
 
       </form>
     </main>
   </div>
-   <script src="<?php echo constant('URL')?>public/js/usuarios/agregar.js"></script>
-   <script src="<?php echo constant('URL')?>public/js/modal/modal.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/rutas/validaciones.js"></script>
+
 </body>
 </html>

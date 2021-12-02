@@ -26,35 +26,60 @@
         <div class="form__box ">
          <div>
             <label for="placa">Placa:</label>
-            <input type="text" name="placa" id="placa" value="<?php echo $this->vehiculos->getPlaca();?>">
+            <input type="text" name="placa" id="placa" value="<?php echo $this->vehiculos->getPlaca();?>" readonly data-patron="[A-Z]{3}[0-9]{3}" pattern="[A-Z]{3}[0-9]{3}" title="El formato debe coincidir con 3 letras mayúsculas y 3 números."/ >
 
          </div>
-         <div>
+        <div>
             <label for="modelo">Modelo:</label>
-            <input type="text"  name="modelo" id="modelo" value="<?php echo $this->vehiculos->getModelo();?>">
-  
-         </div>
-         <div>
-            <label for="funcionamiento">Funcionamiento:</label>
-             <select name="funcionamiento" id="funcionamiento" class="select" required >
-                <option value="">...</option>
-                <option value="Operativo">Operativo</option>
-                <option value="Inoperante">Inoperante</option>>
+             <select name="modelo" id="modelo" class="select">
+                <option value="Otro">Otro</option>
+                <option value="Encava">Encava</option>
+                <option value="BEDFORD">BEDFORD</option>
+                <option value="Caio">Caio</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Envasa">Envasa</option>
+                <option value="Kia">Kia</option>
+                <option value="Iveco">Iveco</option>
+                <option value="Yutong">Yutong</option>
             </select>
 
          </div>
+         <div>
+            <label for="funcionamiento">Funcionamiento:</label>
+             <select name="funcionamiento" id="funcionamiento" class="select">
+                <option value="">...</option>
+                <option value="Operativo">Operativo</option>
+                <option value="Inoperante">Inoperante</option>
+            </select>
+
+         </div>
+         <script>
+       document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("formulario").addEventListener('submit', validarFormulario);
+    });
+
+    function validarFormulario(evento) {
+     var select = document.getElementById("funcionamiento").selectedIndex;
+      else if(select == null || select == 0){
+        alert("Debe seleccionar si la unidad esta operativa o no");
+    return false;
+  }
+  return true
+}
+         </script>
+     
           
         </div>
         
         <div class="bottom">
           <button type="submit" id="submit" name="modificar" value="modificar">Modificar Vehiculo</button>
-          <a href="<?php echo constant('URL')?>vehiculo/">Cancelar</a>
+          <a href="<?php echo constant('URL')?>vehiculos">Cancelar</a>
         </div>
         
       </form>
     </main>
   </div>
+     <script src="<?php echo constant('URL')?>public/js/vehiculos/validarvehiculo.js"></script>
 
-   <script src="<?php echo constant('URL')?>public/js/modal/modal.js"></script>
 </body>
 </html>

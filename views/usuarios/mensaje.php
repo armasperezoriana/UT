@@ -15,7 +15,7 @@
  
     <main>
         <div class="text-header">
-            <h2> <?php echo $this->mensaje ?>  <a class="mensaje-button" href="<?php echo constant('URL')?>usuarios/" class="boton">Volver</a></h2>
+            <h2> <?php echo $this->mensaje ?>  <a class="mensaje-button" href="<?php echo constant('URL')?>usuarios" class="boton">Volver</a></h2>
             
         </div>
     </main>

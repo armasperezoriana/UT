@@ -40,18 +40,22 @@
             <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="direccion" id="direccion" value="<?php echo $this->talleres->getDireccion();?>">
 
          </div>
+           <div>
+            <label for="informacion_contacto">Información de Contacto:</label>
+            <input type="text" name="informacion_contacto" id="informacion_contacto" value="<?php echo $this->talleres->getInformacion_c();?>">
+
+         </div>
         
         </div>
         
         <div class="bottom">
           <button type="submit" id="submit" name="modificarTaller" value="modificarTaller">Modificar Taller</button>
-          <a href="<?php echo constant('URL')?>talleres/">Cancelar</a>
+          <a href="<?php echo constant('URL')?>talleres">Cancelar</a>
         </div>
         
       </form>
     </main>
   </div>
-   <script src="<?php echo constant('URL')?>public/js/usuarios/actualizar.js"></script>
-   <script src="<?php echo constant('URL')?>public/js/modal/modal.js"></script>
+ <script src="<?php echo constant('URL')?>public/js/taller/validar.js"></script>
 </body>
 </html>

@@ -16,44 +16,55 @@
 
     <main>
         <div class="text-header">
-            <h2>Gestion de rutas</h2> 
+            <h2>Gestión de rutas</h2> 
         </div>
 
-    <div class="tabla" id="form">
-      <div>
-          <table>
-            <tr> <th>Id</th><th>Unidad encargada</th><th>Nombre de la ruta</th><th>Dirección</th><th>Hora de salida</th> <th>Modificar</th><th>Eliminar</th>
-            <tbody id="tbody-rutas">
-              <?php
-                foreach($this->rutas as $row){
-                  $ruta = new RutasClass();
-                  $ruta = $row;
-              ?>
-              </tr >
-              <tr id="fila-<?php echo $ruta->getId(); ?>">
-                <td><?php echo $ruta->getId(); ?></td>
-                <td><?php echo $ruta->getVehiculo(); ?></td>
-                <td><?php echo $ruta->getNombre(); ?></td>
-                <td><?php echo $ruta->getDireccion(); ?></td>
-                <td><?php echo $ruta->getHoraSalida(); ?></td>
-                <td><a class="crud" href="<?php echo constant('URL')?>rutas/modificarUsuario/<?php echo $ruta->getId();?>">Modificar</a></td>
-                <td>
-                  <button class="crud eliminar" data-id="<?php echo $ruta->getId(); ?>" <?php if ( $ruta->getId() == '1' ) {?> disabled="disabled" <?php }?>>Eliminar</button>
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-      </div>
+    <div class="tabla" id="form" data-eliminar="eliminarRuta">
+       <div class="form__box">
+          <div>
+          <label for="caja_busqueda">Buscar</label>
+          <input type="text" name="caja_busqueda" id="caja_busqueda" > 
+          </div>
+          
+        </div>
+
+        <div id="datos" >
+          
+        </div>
         <div class="bottom">
-            <a href="<?php echo constant('URL')?>usuarios/registrarUsuario">Registrar</a>
+          <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
+            <a href="<?php echo constant('URL')?>rutas/registrarRuta">Registrar</a>
             <a href="<?php echo constant('URL')?>">Volver</a>
         </div>
       </div>
+      <div class="modal" id="vent">
+      <div class="modal_titulo">AYUDA RUTAS</div>
+              <div class="modal_mensaje">
+                <p>
+                  En este modulo podrá visualizar los rutas que están registrados en el sistema a su vez registrar, eliminar y modificar
+                  <br><br>
+                  1. Para eliminar una ruta seleccione "eliminar" situada a la derecha del ruta
+                  <br> <br>
+                  2. Para modificar una ruta seleccione "modificar" situada a izquierda del ruta
+                  <br><br>
+                  3. Para registrar una ruta seleccione "registrar" que se muestra en el lado inferior derecho de la tabla
+                  <br><br>
+                  4. Para volver al menu principal presione "volver" situado en la parte inferior derecha
+                  <br><br>
+                  5. Para cerrar esta ventana emergente y seguir con el sistema presione e "cerrar"
+                  <br><br>
+                  6. Para hacer una busqueda dentro del modulo debe ingresar el nombre completo del dato que desea buscar
+
+                </p>
+              </div>  
+              <button class="boton" id="cerrar" onclick="cerrar()">cerrar</button>
+          </div>
     </main>
   </div>
+  <script src="<?php echo constant('URL')?>public/js/ventana/ventana.js"></script>
+   <script src="<?php echo constant('URL')?>public/js/jquery.min.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/mainrutas.js"></script>
   
 
-  <script src="<?php echo constant('URL')?>public/js/AJAX/eliminar.js"></script>
 </body>
 </html>

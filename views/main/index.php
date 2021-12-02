@@ -13,66 +13,110 @@
   <?php require 'views/header.php'; ?>
 
     <div class="text-header">
-             <center><h2>Bienvenido al sistema UT</h2></center>
+             <center><h2>Panel de control</h2></center>
          </div>
-
-  
-  <div class="container">
-
-     <div class="main">
-    <div class="slides">
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen1.jpg" alt="">
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen2.jpg" alt="">
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen3.jpg" alt="">
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen4.jpg" alt="">
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen5.jpg" alt=""> 
-      <img src="<?php echo constant('URL')?>public/img/slider/imagen6.jpg" alt="">
-    </div>
-  </div>
     <main>
-       
-        <div class="tablaAlerta" id="form">
-          <table>
-            <tr>
-            <th colspan="3">Alertas del sistema</th>
-            </tr>
-            <tr> <th>Vehiculo</th><th>Chofer</th><th>Mantenimiento</th>
-              <tr>
-                <td>AS1-123</td>
-                <td>Rafael Dominguez</td>
-                <td>Cambio de aceite</td>
-              </tr>
-               <tr>
-                <td>VAS-123</td>
-                <td>Carlos Mesa</td>
-                <td>Cambio de bateria</td>
-              </tr>
-               <tr>
-                <td>ATE-123</td>
-                <td>Miguel Mendi</td>
-                <td>Cambio de caucho</td>
-              </tr>
-               <tr>
-                <td>ASF-124</td>
-                <td>Santiago Solari</td>
-                <td>Cambio de volante</td>
-              </tr>
-              <tr>
-                <td>ASF-124</td>
-                <td>Santiago Solari</td>
-                <td>Cambio de volante</td>
-              </tr>
-              <tr>
-                <td>ASF-124</td>
-                <td>Santiago Solari</td>
-                <td>Cambio de volante</td>
-              </tr>
-          </table>
-      </div>
-     
+      <div class="dashboard">
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/usuario.png">
+          <br>
+          <strong>Usuarios</strong></br>
+          <span><?php 
+          include 'models/source/main/CRUD.php';
 
-
+          $mostrar = new mainCRUD();
+          $mostrar->cantUsuarios();
+          ?></span>
+        </a>
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/vehiculo.png">
+           <br>
+          <strong>Vehiculos</strong></br>
+          <span><?php $mostrar->cantVehiculos();?></span>
+        </a>
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/chofer.png">
+           <br>
+          <strong>Choferes</strong></br>
+          <span><?php $mostrar->cantChoferes();?></span>
+        </a>
+      
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/ruta.png">
+           <br>
+          <strong>Rutas</strong></br>
+          <span><?php $mostrar->cantRutas();?></span>
+        </a>
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/taller.png">
+           <br>
+          <strong>Taller</strong></br>
+          <span><?php $mostrar->cantTaller();?></span>
+        </a>
+        <a href="#">
+          <img src="<?php echo constant('URL')?>public/img/ico/mantenimiento.png">
+           <br>
+          <strong>Mantenimiento</strong></br>
+          <span><?php $mostrar->cantMantenimiento();?></span>
+        </a>
       </div>
+<br><br><br>
+      <div class="text-header">
+            <h2>Actualizacion de datos de usuario actual:</h2> 
+        </div>
+
+      <center><div class="container">
+      <form action="<?php echo constant('URL')?>usuarios/modificarUsuario" method="POST" class="form">
+        <div class="form__box ">
+          <div>
+            <label for="id">Id:</label>
+            <input type="text" data-patron="^[0-9]{6,9}$" name="id" id="id" value="<?php echo $_SESSION['id_usuario']; ?>" required readonly>
+          </div>
+        <div>
+            <label for="cedula">Cedula:</label>
+            <input type="text" data-patron="^[0-9]{6,9}$" name="cedula" id="cedula"  maxlength="9" placeholder="Ingrese su cedula" value="<?php echo 
+            $_SESSION['cedula'] ?>" required readonly>
+          </div> 
+        <div>
+            <label for="rol">Rol:</label>
+            <input type="text" data-patron="^[0-9]{6,9}$" name="rol" id="rol" value="<?php echo $_SESSION['rol']; ?>" required readonly>
+          </div>   
+
+         <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="nombre" id="nombre"  maxlength="20"  value="<?php echo $_SESSION['nombre']; ?>">
+            <p class="ayuda esconder">*3 a 12 letras.</p>
+         </div>
+         <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="apellido" id="apellido"  maxlength="20"  value="<?php echo $_SESSION['apellido'];?>">
+            <p class="ayuda esconder">*3 a 12 letras.</p>
+         </div>
+         <div>
+            <label for="usuario">Usuario:</label>
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="usuario" id="usuario" maxlength="20"  value="<?php echo $_SESSION['usuario'];?>">
+            <p class="ayuda esconder">*3 a 12 letras.</p>
+         </div>
+   
+            <div class="margin-lados">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" maxlength="15"  name="contrasena" id="contrasena" required>
+                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
+            </div>
+            <div class="margin-lados">
+                <label for="conPass">Confirmar contraseña:</label>
+                <input type="password" maxlength="15" name="pass-confirmar" id="conPass" required>
+                <p class="ayuda esconder">*hasta 16 caracteres alfanumericos</p>
+            </div>
+ 
+        </div>
+        
+        <div class="bottom">
+          <button type="submit" id="submit" name="modificarUsuarioMain" value="modificarUsuarioMain">Modificar Usuario</button>
+         
+        </div>
+        
+      </form><center>
     </div>
     </main>
   </div>
@@ -80,27 +124,6 @@
   <script src="<?php echo constant('URL')?>public/js/slider/jquery.slides.js"></script>
     <script>
  
-  $(function(){
-  $(".slides").slidesjs({
-    play: {
-      active: true,
-        // [boolean] Generate the play and stop buttons.
-        // You cannot use your own buttons. Sorry.
-      effect: "slide",
-        // [string] Can be either "slide" or "fade".
-      interval: 3000,
-        // [number] Time spent on each slide in milliseconds.
-      auto: true,
-        // [boolean] Start playing the slideshow on load.
-      swap: true,
-        // [boolean] show/hide stop and play buttons
-      pauseOnHover: false,
-        // [boolean] pause a playing slideshow on hover
-      restartDelay: 2500
-        // [number] restart delay on inactive slideshow
-    }
-  });
-});
  
   </script>
 </body>

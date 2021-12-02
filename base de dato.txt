@@ -5,3 +5,4 @@ contraseña: admin
 3)crear una base de dato llamada "UT" con formato utf8_bin
 4)en crear tabla se presiona [importar] y se busca en el la carpeta
 del sistema el archivo llamado "bd.sql"
+5) se agrega el archivo datos de insersion en el gestor de base de datos exportando el archivo sql o se inserta manualmente copiando y pegando los insert en el gestor

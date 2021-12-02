@@ -1,5 +1,7 @@
 <?php
-
+  require 'libs/classes/vehiculos.class.php';
+  require 'libs/classes/talleres.class.php';
+  require 'libs/classes/tipos.class.php';
   require 'libs/classes/mantenimientos.class.php';
   require 'source/mantenimientos/CRUD.php';
 

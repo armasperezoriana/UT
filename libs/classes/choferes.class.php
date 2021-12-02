@@ -6,7 +6,7 @@
       private $nombre;
       private $apellido;
       private $telefono;
-      private $id_unidad;
+      private $placa;
       
 
       public function getId() {
@@ -24,9 +24,10 @@
       public function getTelefono() {
         return $this->telefono;
       }
-      public function getId_unidad() {
-        return $this->id_unidad;
+      public function getPlaca() {
+        return $this->placa;
       }
+      
 
       //SETTERS
       public function setId($id) {
@@ -44,8 +45,8 @@
       public function setTelefono($telefono) {
         $this->telefono = $telefono;
       }
-      public function setId_unidad($id_unidad) {
-        $this->id_unidad = $id_unidad;
+      public function setPlaca($placa) {
+        $this->placa = $placa;
       }
   }
 

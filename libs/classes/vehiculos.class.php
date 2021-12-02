@@ -2,15 +2,15 @@
     // Clase de usuario para BD
 
   class VehiculosClass  {
-      private $id_vehiculo;
+      private $id;
       private $placa;
       private $modelo;
       private $funcionamiento;
-      
 
-      public function getId() {
-        return $this->id_vehiculo;
+      public function getID() {
+        return $this->id;
       }
+
       public function getPlaca() {
         return $this->placa;
       }
@@ -23,8 +23,8 @@
 
 
       //SETTERS
-      public function setId($id) {
-        $this->id_vehiculo = $id;
+       public function setId($id) {
+        $this->id = $id;
       }
       public function setPlaca($placa) {
         $this->placa = $placa;

@@ -10,12 +10,15 @@
       if ($this->model->usuarios->insert(['nombre'=>$nombre, 'apellido'=>$apellido, 'contrasena'=>$contrasena, 'rol'=>$rol, 'cedula'=>$cedula, 'usuario'=>$usuario])){
         $this->view->mensaje = '¡Usuario agregado exitosamente!';
       }else{
-        $this->view->mensaje = '¡Ha ocurrido un error!';
-        $this->view->error = $this->model->usuarios->getError();
+        $this->view->mensaje = $this->model->usuarios->getError();
+        //$this->view->error = $this->model->usuarios->getError();
       }
     }else{
       $this->view->mensaje = 'Rellene los campos';
     }
+    
+    $roles = $this->model->usuarios->getRoles();
+    $this->view->roles = $roles;
 
     $this->view->render('usuarios/agregar');
 

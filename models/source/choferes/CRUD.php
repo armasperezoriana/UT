@@ -9,17 +9,51 @@
     }
 
     public  function insert ($data) {
+    $id= 0;
+    $mayor = 0;
       try{
-        $query = $this->db->connect()->prepare('INSERT INTO choferes (cedula, nombre, apellido, telefono, id_vehiculo) VALUES(:cedula, :nombre, :apellido, :telefono, :id_vehiculo)');
+         $query = $this->db->connect()->query('SELECT * FROM choferes');
+      
+        while($row = $query->fetch()){
+          $item = new ChoferesClass();
 
-        $query->execute(['cedula'=>$data['cedula'], 'nombre'=>$data['nombre'],  'apellido'=>$data['apellido'], 'telefono'=>$data['telefono'], 'id_vehiculo'=>$data['id_vehiculo']]);
+          if ($row['id_choferes'] >= $mayor) {
+            $mayor = $row['id_choferes'];
+          }  
+        }
+          $id = $mayor + 1;
+        $query = $this->db->connect()->prepare('INSERT INTO choferes (id_choferes, cedula, nombre, apellido, telefono, placa, status) VALUES(:id_choferes, :cedula, :nombre, :apellido, :telefono, :placa, :status)');
+
+        $query->execute(['cedula'=>$data['cedula'], 'nombre'=>$data['nombre'],  'apellido'=>$data['apellido'], 'telefono'=>$data['telefono'], 'placa'=>$data['placa'], 'id_choferes'=>$id, 'status'=>'0']);
 
         return true;
       } catch(PDOException $e){
-        $this->error = $e->getMessage();
+        $this->error = "¡Error! Ya esta cedula existe";
         return false;
       }
     }
+     function verificar($modulo){
+           $items = [];
+          
+
+      try {
+      $query = $this->db->connect()->prepare('SELECT * FROM roles WHERE nombre_rol = :nombre_rol');
+      $query->execute(['nombre_rol'=>$_SESSION['rol']]);
+
+       while($row = $query->fetch()){
+          $permiso_choferes = ($row['permiso_choferes']);
+        }
+          if ($permiso_choferes == "restringido") {
+            return false;
+          }else{
+            return true;
+          }
+
+      } catch (Exception $e) {
+      }
+      
+    }
+    
 
     function get ( $id = null) {
       $items = [];
@@ -27,25 +61,24 @@
 
         if ( isset($id) ) {
 
-          $query = $this->db->connect()->prepare('SELECT * FROM choferes WHERE id_chofer = :id');
+          $query = $this->db->connect()->prepare('SELECT * FROM choferes WHERE id_choferes = :id');
 
           $query->execute(['id'=>$id]);
 
         } else {
 
-          $query = $this->db->connect()->query('SELECT * FROM choferes');
+          $query = $this->db->connect()->query('SELECT * FROM choferes ORDER BY id_choferes');
 
         }
 
         while($row = $query->fetch()){
           $item = new ChoferesClass();
-
-          $item->setId($row['id_usuario']);
+          $item->setId($row['id_choferes']);
           $item->setCedula($row['cedula']);
           $item->setNombre($row['nombre']);
           $item->setApellido($row['apellido']);
           $item->setTelefono($row['telefono']);
-          $item->setIdUnidad($row['id_vehiculo']);
+          $item->setPlaca($row['placa']);
 
           array_push($items, $item);
         }
@@ -71,13 +104,12 @@
 
         } else {
 
-          $query = $this->db->connect()->query('SELECT * FROM vehiculos');
+          $query = $this->db->connect()->query('SELECT * FROM vehiculos WHERE status = 0');
 
         }
 
         while($row = $query->fetch()){
           $item = new VehiculosClass();
-
           $item->setId($row['id_vehiculo']);
           $item->setPlaca($row['placa']);
           $item->setModelo($row['modelo']);
@@ -90,12 +122,14 @@
       }
     }
 
-    function drop ($id) {
 
+    function drop ($id) {
+    $status = 1;
       try {
 
-        $query = $this->db->connect()->prepare('DELETE FROM usuarios WHERE id_usuario = :id');
-        $query->execute(['id'=>$id]);
+        $query = $this->db->connect()->prepare('UPDATE choferes  SET  status = :status WHERE id_choferes = :id');
+       
+        $query->execute(['id'=>$id ,'status'=>$status]);
 
         if ( $query->rowCount() ) {
           return true;
@@ -109,10 +143,10 @@
 
     }
 
-    function update ($data) {
+     function update ($data) {
       try {
-        $query = $this->db->connect()->prepare('UPDATE choferes SET  nombre = :nombre, apellido = :apellido, telefono = :telefono, id_vehiculo = :id_vehiculo WHERE cedula = :cedula');
-        $query->execute(['cedula'=>$data['cedula'], 'nombre'=>$data['nombre'],  'apellido'=>$data['apellido'], 'telefono'=>$data['telefono'], 'id_vehiculo'=>$data['id_vehiculo']]);
+        $query = $this->db->connect()->prepare('UPDATE choferes SET  nombre = :nombre, apellido = :apellido, telefono = :telefono, placa = :placa WHERE cedula = :cedula');
+        $query->execute(['cedula'=>$data['cedula'], 'nombre'=>$data['nombre'],  'apellido'=>$data['apellido'], 'telefono'=>$data['telefono'],'placa'=>$data['placa']]);
 
         if ( $query->rowCount() ) {
           return true;
@@ -124,6 +158,7 @@
         return false;
       }
     }
+
 
     public function getError () {
       return $this->error;

@@ -1,60 +1,63 @@
 <?php 
-    // Clase de usuario para BD
+    // Clase de mantenimientos para BD
 
-  class UsuariosClass  {
-      private $id_usuario;
-      private $cedula;
+  class MantenimientosClass  {
+      private $id_mantenimiento;
+      private $nombre_tipo;
+      private $placa;
       private $nombre;
-      private $apellido;
-      private $usuario;
-      private $contrasena;
-      private $rolusuario;
+      private $costo;
+      private $fecha;
+      private $tiempo;
+
       
 
       public function getId() {
-        return $this->id_usuario;
+        return $this->id_mantenimiento;
       }
-      public function getCedula() {
-        return $this->cedula;
+      public function getNombre_tipo() {
+        return $this->nombre_tipo;
+      }
+      public function getPlaca() {
+        return $this->placa;
       }
       public function getNombre() {
         return $this->nombre;
       }
-      public function getApellido() {
-        return $this->apellido;
+      public function getCosto() {
+        return $this->costo;
       }
-      public function getUsuario() {
-        return $this->usuario;
+      public function getFecha() {
+        return $this->fecha;
       }
-      public function getContrasena() {
-        return $this->contrasena;
-      }
-      public function getRol() {
-        return $this->rol;
+      public function getTiempo() {
+        return $this->tiempo;
       }
 
+
       //SETTERS
-      public function setId($id) {
-        $this->id_usuario = $id;
+      public function setId($id_mantenimiento) {
+        $this->id_mantenimiento = $id_mantenimiento;
+      }
+      public function setPlaca($placa) {
+        $this->placa = $placa;
       }
       public function setNombre($nombre) {
         $this->nombre = $nombre;
       }
-      public function setApellido($apellido) {
-        $this->apellido = $apellido;
+      public function setNombre_tipo($nombre_tipo) {
+        $this->nombre_tipo = $nombre_tipo;
       }
-      public function setCedula($cedula) {
-        $this->cedula = $cedula;
+      public function setCosto($costo) {
+        $this->costo = $costo;
       }
-      public function setUsuario($usuario) {
-        $this->usuario = $usuario;
+      public function setFecha($fecha) {
+        $this->fecha = $fecha;
       }
-      public function setContrasena($contrasena) {
-        $this->contrasena = $contrasena;
+        public function setTiempo($tiempo) {
+        $this->tiempo = $tiempo;
       }
-      public function setRol($rol) {
-        $this->rol = $rol;
-      }
+
   }
 
 ?>

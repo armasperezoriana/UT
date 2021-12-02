@@ -5,10 +5,9 @@
 .tabla {
   color: #fff;
   font-family: helvetica, sans-serif;
-  height: auto;
-  min-width: 150px;
+ min-width: 600px;
   background: rgba(3, 3, 3, 0.7);
-  border-radius: 0px;
+  border-radius: 10px;
   overflow: hidden;
   margin: 0 10px;
   animation-name: aparecer;
@@ -51,7 +50,7 @@
   padding: 0 10px;
 }
 .tabla th {
-  background: rgba(3, 3, 3, 0.7);
+  background: #0094b0;
   color: #fff;
 }
 
@@ -105,4 +104,60 @@
   padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,.5);
+}
+.caja1{
+background:#254547;
+border-radius: 5px;
+color: #fff;
+position: absolute;
+width: 15%;
+left: 10%;
+bottom:10px;
+top:190px;
+height: 30%;
+}
+.usuarios{
+
+  width:65%;
+}
+.vehiculos{
+
+  width: 65%;
+  height: 65%;
+  padding: 2px 2px 2px 2px;
+}
+  
+.caja2{
+background:#f56f3a;
+border-radius: 5px;
+color: #fff;
+position: absolute;
+left: 30%;
+width: 15%;;
+bottom:10px;
+top:190px;
+height: 30%;
+}
+  
+.caja3{
+background:black;
+border-radius: 5px;
+color: #fff;
+position: absolute;
+left: 50%;
+width: 15%;;
+bottom:10px;
+top:190px;
+height: 30%;
+}
+.caja4{
+background:#0b6daa;
+border-radius: 5px;
+color: #fff;
+position: absolute;
+left: 70%;
+width: 15%;;
+bottom:10px;
+top:190px;
+height: 30%;
 }

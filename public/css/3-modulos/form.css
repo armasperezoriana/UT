@@ -29,7 +29,7 @@
   flex-wrap: wrap;
 
 }
-
+ 
 .form__box div {
   flex: 1 0 250px;
   max-width: 350px;
@@ -41,7 +41,7 @@
 }
 .form__box label {
   padding: 5px;
-  background: #0b6daa;
+  background: #0094b0;
 }
 
 .form__box input,
@@ -51,7 +51,7 @@
 }
 
 .form__box input:read-only {
-  background: #ccc;
+  background:#95A5A6 ;
   border-color: #ccc;
 }
 .form__box input {
@@ -92,13 +92,13 @@
   cursor: pointer;
   font-size: 1.1em;
   color: #fff;
-  background: #0b6daa;
+  background: #0094b0;
   transition: all ease .5s;
 }
 
 .form .bottom a:hover,
 .form .bottom button:hover{
-  background: #254547;
+  background: #d24c71;
 }
 /* JAVASCRIPT */
 .desaparecer {

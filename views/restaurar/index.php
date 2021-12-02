@@ -29,31 +29,17 @@
           <?php
         } ?>
         <form class="restaurar__form" method="POST" name="formulario">
-          <input
-            class="login_input"
-            type="text"
-            name="nombre"
-            placeholder="Nombre"
-            id="nombre"
-          />
           <br> 
           <input
             class="login_input"
             type="text"
-            name="apellido"
-            placeholder="Apellido"
-            id="apellido"
+            name="correo"
+            placeholder="correo"
+            id="correo"
           />
           <br>
-          <input
-            class="login_input"
-            type="text"
-            name="cedula"
-            placeholder="Cedula"
-            id="cedula"
-          />
-          <br>
-          <button type="submit" name="ingresar" class="boton" value="ingresar">Restaurar contraseña</button>
+          
+          <button type="submit" name="ingresar" class="boton" value="ingresar">Recibir contraseña por correo</button>
          <input type="button" class="boton" value="Cancelar" onClick="history.go(-1);">
         </form>
       </div>

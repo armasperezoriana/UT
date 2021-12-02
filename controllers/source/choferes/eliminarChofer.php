@@ -1,10 +1,10 @@
 <?php
-	if ( $this->model->usuarios->drop($param[0]) ) {
-		$mensaje = 'Usuario Eliminado';
+	if ( $this->model->choferes->drop($param[0]) ) {
+				 header('location:'. constant('URL').'choferes');
 	} else {
-		$mensaje = 'Ha ocurrido un Error';
+		 $this->view->mensaje = '¡Ha ocurrido un error!';
 
 	}
 
-	echo $mensaje;
+	$this->view->render('choferes/mensaje');
 ?>
