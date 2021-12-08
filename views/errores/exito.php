@@ -5,7 +5,7 @@
     <link href="<?php echo constant('URL')?>public/img/uptaeb1.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SISTEMA UT| Errores</title>
+    <title>SISTEMA UT</title>
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/main.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
             
         </div>
          <img src="<?php echo constant('URL')?>public/img/404.png" width="800px">
-         <laberl>Lo sentimos, pero la pagina que buscas no existe.</label>
+         <laberl>¡Registro exitoso!.</label>
     </main>
   </div>
 </body>

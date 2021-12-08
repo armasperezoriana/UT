@@ -62,7 +62,7 @@
 
       </div>  
       <div class="bottom">
-        <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
+        <button class="botoncito" id="abrir" onclick="abrir()">Ayuda</button>
         <a href="<?php echo constant('URL')?>bitacora">Bitacora</a>
         <a href="<?php echo constant('URL')?>seguridad/registrarRol">Registrar</a>
         <a href="<?php echo constant('URL')?>">Volver</a>

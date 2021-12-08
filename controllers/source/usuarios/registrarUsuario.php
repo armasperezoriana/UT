@@ -8,7 +8,12 @@
       $cedula     = ($_POST['cedula'] !== "") ? $_POST['cedula'] : NULL;
       $contrasena     = ($_POST['contrasena'] !== "") ? $_POST['contrasena'] : NULL;
       if ($this->model->usuarios->insert(['nombre'=>$nombre, 'apellido'=>$apellido, 'contrasena'=>$contrasena, 'rol'=>$rol, 'cedula'=>$cedula, 'usuario'=>$usuario])){
-        $this->view->mensaje = '¡Usuario agregado exitosamente!';
+
+         //$this->view->render('usuarios/agregarSeguridad');
+
+     $this->view->mensaje = '¡Usuario agregado exitosamente!';
+
+        require_once ("views/usuarios/agregarSeguridad.php");
       }else{
         $this->view->mensaje = $this->model->usuarios->getError();
         //$this->view->error = $this->model->usuarios->getError();

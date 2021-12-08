@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UT | Usuarios</title>
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/main.css">
+    <script type="text/javascript" href= "<?php echo constant('URL')?>public/js/query/validar.js"></script>
 </head>
 <body>
   <!-- Uso esta clase por el fondo rojo -->
@@ -21,18 +22,18 @@
         <?php require_once 'views/errores/mensaje.php'?>
 
       </div>
-        <form action="<?php echo constant('URL')?>usuarios/registrarUsuario" method="POST" class="form">
+        <form action="<?php echo constant('URL')?>usuarios/registrarUsuario" method="POST" class="form" onclick="validar()";>
       
         <div class="form__box">  
       
          <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="nombre" id="nombre" maxlength="16">
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" required name="nombre" id="nombre" maxlength="16">
             <p class="ayuda esconder">*3 a 12 letras.</p>
          </div>
          <div>
             <label for="apellido">Apellido:</label>
-            <input type="text" data-patron="^[a-zA-Z]{3,12}$" name="apellido" id="apellido">
+            <input type="text" data-patron="^[a-zA-Z]{3,12}$" required name="apellido" id="apellido">
             <p class="ayuda esconder">*3 a 12 letras.</p>
          </div>
          <div>
@@ -74,7 +75,8 @@
         </div>
 
         <div class="bottom">
-          <button type="submit" name="agregar"  value="agregar" id="submit">Agregar</button>
+          <a href="<?php echo constant('URL')?>pregunta">Agregar</a>
+         
           <a href="<?php echo constant('URL')?>usuarios" >Volver</a>
 
         </div>
@@ -82,6 +84,6 @@
       </form>
     </main>
   </div>
-   <script src="<?php echo constant('URL')?>public/js/usuarios/agregar.js"></script>
+   <script src="<?php echo constant('URL')?>public/js/query/usuarios/agregarV.js"></script>
 </body>
 </html>

@@ -48,7 +48,7 @@
     
           </table>
         <div class="bottom">
-          <button class="botoncito" id="abrir" onclick="abrir()">ayuda</button>
+          <button class="botoncito" id="abrir" onclick="abrir()">Ayuda</button>
           <a href="<?php echo constant('URL')?>seguridad">Volver</a>
         </div> 
       </div>
