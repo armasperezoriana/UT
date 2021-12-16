@@ -1,4 +1,3 @@
-
 (( c, d, a )=>{
 
   d.addEventListener('DOMContentLoaded',()=>{
@@ -13,36 +12,23 @@
       }
     })
 
+
   })
 
   const validacionEstaBien = ()=> {
     //tomar inputs y botones
     let placa = d.querySelector('#placa') //input de nombre
-    let modelo = d.querySelector('#modelo') //input de apellido
-    let funcionamiento = d.querySelector('#funcionamiento')
+    let funcionamiento =d.querySelector('#funcionamiento') 
+    let submit = d.querySelector('modelo') //input de submit
 
-    let submit = d.querySelector('#submit') //input de submit
-
- if (estaVacio(placa,modelo)){
-      alert('Todos los campos son obligatorios')
+    if (estaVacio(placa,modelo, funcionamiento)) {
+      alert('No pueden haber campos vacios')
       return false
-    }else if (estaVacio(modelo)){
-      alert('El campo modelo debe tener al menos 4 caracteres')
-      return false
-    }
-    else if (estaVacio(funcionamiento)){
-      alert('Asegurese de seleccionar si el vehiculo esta en funcionamiento, o no')
-      return false
-    }
-    else if (!coincideExpresionRegular(placa) ) {
-      alert('La placa no coincide con el tipo de dato esperado')
+    } else if (!coincideExpresionRegular(placa) ) {
+      alert('Los campos que no coinciden con el tipo de dato esperado')
       return false
     } 
-    else if (!coincideExpresionRegular(modelo) ) {
-      alert('El modelo ingresado no coincide con el tipo de dato esperado')
-      return false
-    } 
-   return true
+    return true
   }
 
   const estaVacio = (...elementos) => {
@@ -50,7 +36,7 @@
     elementos.forEach(elemento => {
       let valor = elemento.value.trim()
       //en caso de que haya alguno vacio
-      if (valor.length <= 2) {
+      if (valor.length <= 3) {
         //si entra en la condicional es porque
         //hay uno vacio
         validacion = true 
@@ -79,5 +65,3 @@
     })
     return validacion
   }
-
-})(console.log, document, alert)
