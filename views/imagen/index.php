@@ -21,23 +21,43 @@
         <?php require_once 'views/errores/mensaje.php'?>
 
       </div>
-        <form action="<?php echo constant('URL')?>pregunta/estenografia" method="POST" class="form">
+        <form action="<?php echo constant('URL')?>pregunta/estenografia" method="POST" class="form" id="formulario" id="formulario">
       
+        <div class=form_box>
+      <div>
+            <label for="palabra">Escribe una palabra de seguridad:</label></
+          <input type="password"  data-patron="^[a-zA-Z]{4,12}$" name="palabra" id="palabra" maxlength="20">
+           <center> <input type="password" data-patron="^[a-zA-Z]{3,12}$" name="respuesta" id="respuesta" placeholder="Palabra de seguridad" maxlength="12"></center>
+          </div>
+
         <div class="tabla">  
            <div>
         <label>Selecciona una imagen</label>
          
          <table div="imagenes">
                <tr>
-                <th>Imagen 1 <a class="crud" href="<?php echo constant('URL')?>tipos"><img src="<?php echo constant('URL')?>public/img/slider/5.jpg" width="300"></th>
-              <th>Imagen 2 <a class="crud" href="<?php echo constant('URL')?>tipos"><img src="<?php echo constant('URL')?>public/img/slider/6.jpg" width="300"></th>
-              <th>Imagen 3  <a class="crud" href="<?php echo constant('URL')?>tipos"><img src="<?php echo constant('URL')?>public/img/slider/2.jpg" width="300"></th>
-              <th>Imagen 4  <a class="crud" href="<?php echo constant('URL')?>tipos"><img src="<?php echo constant('URL')?>public/img/slider/7.jpg" width="300"></th>
+                <th>Imagen 1 <img src="<?php echo constant('URL')?>public/img/seguridad/1.png" width="300"></th>
+              <th>Imagen 2 <img src="<?php echo constant('URL')?>public/img/seguridad/2.png" width="300"></th>
+              <th>Imagen 3  <img src="<?php echo constant('URL')?>public/img/seguridad/3.png" width="300"></th>
+              <th>Imagen 4  <img src="<?php echo constant('URL')?>public/img/seguridad/4.png" width="300"></th>
               </tr>
           
            
-            </table>
+        </table>
         </div>
+      </div>
+ <!--
+      <?php 
+
+      require_once 'controllers/source/esteganografia/esteganografia.php';
+
+            
+            $procesar = new EsteganografiaController();
+            $procesar->encriptarImg();
+        
+
+      ?>
+  -->
       </div>
                 <div class="bottom">
           <a href="<?php echo constant('URL')?>">Guardar</a>
@@ -48,6 +68,6 @@
       </form>
     </main>
   </div>
-   <script src="<?php echo constant('URL')?>public/js/usuarios/agregar.js"></script>
+   <script src="<?php echo constant('URL')?>public/js/pregunta/agregar.js"></script>
 </body>
 </html>
