@@ -8,23 +8,20 @@
       $cedula     = ($_POST['cedula'] !== "") ? $_POST['cedula'] : NULL;
       $contrasena     = ($_POST['contrasena'] !== "") ? $_POST['contrasena'] : NULL;
       if ($this->model->usuarios->insert(['nombre'=>$nombre, 'apellido'=>$apellido, 'contrasena'=>$contrasena, 'rol'=>$rol, 'cedula'=>$cedula, 'usuario'=>$usuario])){
-
-         //$this->view->render('usuarios/agregarSeguridad');
-
-     $this->view->mensaje = '¡Usuario agregado exitosamente!';
-
-        require_once ("views/usuarios/agregarSeguridad.php");
+        $this->view->mensaje = 'Módulo de seguridad de Usuarios';
       }else{
         $this->view->mensaje = $this->model->usuarios->getError();
-        //$this->view->error = $this->model->usuarios->getError();
       }
+
+      $this->view->render('imagen/index');
     }else{
       $this->view->mensaje = 'Rellene los campos';
-    }
     
     $roles = $this->model->usuarios->getRoles();
     $this->view->roles = $roles;
-
+    //$pregunta = $this->model->pregunta->getPregunta();
+    //$this->view->pregunta = $pregunta;
     $this->view->render('usuarios/agregar');
+  }
 
 ?>
